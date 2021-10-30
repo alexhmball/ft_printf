@@ -19,11 +19,11 @@
 # include <stdio.h>
 
 int		ft_printf(const char *f, ...);
-int     ft_putstr(char *str);
+size_t  ft_putstr(char *str);
 void	ft_putchar(char c);
-void	ft_putnbr(int n);
+size_t 	ft_putnbr(int n);
 char	*ft_itoa(int nbr);
-void	ft_putnbr_uns(size_t n);
-int     ft_strlen(char *str);
+size_t	ft_putnbr_uns(size_t n);
+size_t  ft_strlen(char *str);
 
 #endif

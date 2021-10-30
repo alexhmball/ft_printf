@@ -16,11 +16,11 @@ int		ft_printf(const char *f, ...)
 {
 	va_list	ap;
 	int     i;
-    int     count;
+    size_t     count;
 
-	va_start(ap, f);
 	i = 0;
     count = 0;
+	va_start(ap, f);
 	while (f[i])
 	{
 		if (f[i] != '%')
@@ -47,12 +47,12 @@ int		ft_printf(const char *f, ...)
 		}
 		else if (f[i + 1] == 'i' || f[i + 1] == 'd')
 		{
-			ft_putnbr(va_arg(ap, int));
+			count += ft_putnbr(va_arg(ap, int));
 			i++;
 		}
         else if (f[i + 1] == 'u')
         {
-            ft_putnbr_uns(va_arg(ap, size_t));
+            count += ft_putnbr_uns(va_arg(ap, size_t));
             i++;
         }
 		i++;
@@ -61,10 +61,12 @@ int		ft_printf(const char *f, ...)
 	return (count);
 }
 
-// int		main(void)
-// {
+int		main(void)
+{
+    char *ptr;
+
+    ptr = "fuck";
+	//ft_printf("%c%s%d%i%u%%", 'c', "string", 3, 4, 99);
+    printf("| %p", ptr);
     
-// 	ft_printf("| %c|\n", '0' - 256);
-//     printf("| %c|\n", '0' - 256);
-    
-// }
+}

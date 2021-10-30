@@ -1,9 +1,9 @@
 
 #include "ft_printf.h"
 
-int ft_strlen(char *str)
+size_t ft_strlen(char *str)
 {
-    int i;
+    size_t i;
 
     i = 0
     while (str[i])
