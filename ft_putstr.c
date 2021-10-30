@@ -1,7 +1,11 @@
 #include "ft_printf.h"
 
-void	ft_putstr(char *str)
+int	ft_putstr(char *str)
 {
-	while (*str)
-		write(1, str++, 1);
+    int i;
+
+    i = 0;
+	while (str[i])
+		write(1, &str[i++], 1);
+    return (i);
 }

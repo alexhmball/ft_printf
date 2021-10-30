@@ -15,46 +15,56 @@
 int		ft_printf(const char *f, ...)
 {
 	va_list	ap;
-	int i;
+	int     i;
+    int     count;
 
 	va_start(ap, f);
 	i = 0;
+    count = 0;
 	while (f[i])
 	{
 		if (f[i] != '%')
+        {
 			ft_putchar(f[i]);
+            count++;
+        }
 		else if (f[i + 1] == '%')
 		{
 			ft_putchar('%');
 			i++;
+            count++;
 		}
 		else if (f[i + 1] == 'c')
 		{
 			ft_putchar(va_arg(ap, int));
 			i++;
+            count++;
 		}
 		else if (f[i + 1] == 's')
 		{
-			ft_putstr(va_arg(ap, char *));
+			count += ft_putstr(va_arg(ap, char *));
 			i++;
 		}
-		else if (f[i + 1] == 'i')
+		else if (f[i + 1] == 'i' || f[i + 1] == 'd')
 		{
 			ft_putnbr(va_arg(ap, int));
 			i++;
 		}
-		else if (f[i + 1] == 'd')
-		{
-			ft_putstr(ft_itoa(va_arg(ap, double)));
-			i++;
-		}
+        else if (f[i + 1] == 'u')
+        {
+            ft_putnbr_uns(va_arg(ap, size_t));
+            i++;
+        }
 		i++;
 	}
 	va_end(ap);
-	return (i);
+	return (count);
 }
 
-int		main(void)
-{
-	ft_printf("fuck i%c up%c  %i %s %% %d\n", 't', '!', -7, "HELLO", 3.14);
-}
+// int		main(void)
+// {
+    
+// 	ft_printf("| %c|\n", '0' - 256);
+//     printf("| %c|\n", '0' - 256);
+    
+// }

@@ -10,11 +10,11 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME =	libftprintf.a
+NAME = libftprintf.a
 
-SRCS =	ft_printf.c ft_putchar.c ft_putstr.c
+INCLUDES = ft_printf.h
 
-INCLUDES =	ft_printf.h
+SRCS = ft_putchar.c ft_putstr.c ft_putnbr.c ft_printf.c ft_putnbr_uns.c
 
 OBJS = ${SRCS:.c=.o}
 
@@ -25,7 +25,7 @@ RM = rm -f
 FLAGS = -Wall -Wextra -Werror
 
 .c.o:
-		@${CC} ${FLAGS} $< -o ${<:.c=.o}
+		${CC} ${FLAGS} -c $< -o ${<:.c=.o}
 
 $(NAME): ${OBJS}
 		ar rsc ${NAME} ${OBJS}
@@ -33,7 +33,7 @@ $(NAME): ${OBJS}
 all:	${NAME}
 
 clean:
-		@${RM} ${OBJS}
+		${RM} ${OBJS}
 
 fclean: clean
 		@${RM} ${NAME}
