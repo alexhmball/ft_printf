@@ -14,11 +14,15 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>
+# include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
 
-int		ft_printf(const char *, ...);
+int		ft_printf(const char *f, ...);
 void	ft_putstr(char *str);
 void	ft_putchar(char c);
+void	ft_putnbr(int n);
+char	*ft_itoa(int nbr);
+//char	*ft_putfloat(float n);
 
 #endif

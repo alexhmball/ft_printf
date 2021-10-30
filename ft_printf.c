@@ -12,13 +12,49 @@
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *in, ...)
+int		ft_printf(const char *f, ...)
 {
 	va_list	ap;
-	int ret;
+	int i;
 
-	va_start(ap, &in);
-	ret = ft_putchar(ap);
+	va_start(ap, f);
+	i = 0;
+	while (f[i])
+	{
+		if (f[i] != '%')
+			ft_putchar(f[i]);
+		else if (f[i + 1] == '%')
+		{
+			ft_putchar('%');
+			i++;
+		}
+		else if (f[i + 1] == 'c')
+		{
+			ft_putchar(va_arg(ap, int));
+			i++;
+		}
+		else if (f[i + 1] == 's')
+		{
+			ft_putstr(va_arg(ap, char *));
+			i++;
+		}
+		else if (f[i + 1] == 'i')
+		{
+			ft_putnbr(va_arg(ap, int));
+			i++;
+		}
+		else if (f[i + 1] == 'd')
+		{
+			ft_putstr(ft_itoa(va_arg(ap, double)));
+			i++;
+		}
+		i++;
+	}
 	va_end(ap);
-	return (ret);
+	return (i);
+}
+
+int		main(void)
+{
+	ft_printf("fuck i%c up%c  %i %s %% %d\n", 't', '!', -7, "HELLO", 3.14);
 }
