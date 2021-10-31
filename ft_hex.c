@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_hex.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aball <aball@student.42abudhabi.ae>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/01 03:32:06 by aball             #+#    #+#             */
+/*   Updated: 2021/11/01 03:32:08 by aball            ###   ########.ae       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ft_printf.h"
 
@@ -22,11 +33,11 @@ static int	convert_hex(unsigned int n)
 
 int	put_hex(unsigned int n)
 {
-	static int i;
+	static int	i;
 
 	i = 0;
 	if (n > 15)
-			put_hex(n / 16);
+		put_hex(n / 16);
 	i += convert_hex(n % 16);
 	return (i);
 }

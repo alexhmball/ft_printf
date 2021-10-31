@@ -14,7 +14,7 @@ NAME = libftprintf.a
 
 INCLUDES = ft_printf.h
 
-SRCS = ft_putchar.c ft_putstr.c ft_putnbr.c ft_printf.c ft_putnbr_uns.c ft_hex.c ft_strlen.c
+SRCS = ft_putchar.c ft_putstr.c ft_putnbr.c ft_printf.c ft_putnbr_uns.c ft_hex.c ft_strlen.c ft_hex_up.c ft_putaddress.c
 
 OBJS = ${SRCS:.c=.o}
 
