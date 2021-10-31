@@ -1,9 +1,9 @@
 
 #include "ft_printf.h"
 
-static size_t count_n(int n)
+static int count_n(int n)
 {
-    size_t c;
+    int c;
 
     c = 0;
     if (n == 0)
@@ -21,9 +21,9 @@ static size_t count_n(int n)
     return (c);
 }
 
-size_t	ft_putnbr(int n)
+int	ft_putnbr(int n)
 {
-    size_t c;
+    int		c;
 
     c = count_n(n);
 	if (n == -2147483648)

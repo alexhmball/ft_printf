@@ -5,6 +5,6 @@ int     main(void)
 {
     int n;
 
-    n = 3.14;
-    printf("%i %%i", n);
+    n = 7562 % 16;
+    printf("%d", n);
 }

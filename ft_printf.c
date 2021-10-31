@@ -16,7 +16,7 @@ int		ft_printf(const char *f, ...)
 {
 	va_list	ap;
 	int     i;
-    size_t     count;
+    int     count;
 
 	i = 0;
     count = 0;
@@ -50,23 +50,28 @@ int		ft_printf(const char *f, ...)
 			count += ft_putnbr(va_arg(ap, int));
 			i++;
 		}
-        else if (f[i + 1] == 'u')
-        {
-            count += ft_putnbr_uns(va_arg(ap, size_t));
-            i++;
-        }
+		else if (f[i + 1] == 'u')
+		{
+			count += ft_putnbr_uns(va_arg(ap, unsigned int));
+			i++;
+		}
+		else if (f[i + 1] == 'x')
+		{
+			count += put_hex(va_arg(ap, unsigned int));
+			i++;
+		}
 		i++;
 	}
 	va_end(ap);
 	return (count);
 }
 
-int		main(void)
-{
-    char *ptr;
+// int		main(void)
+// {
+// 	int i;
 
-    ptr = "fuck";
-	//ft_printf("%c%s%d%i%u%%", 'c', "string", 3, 4, 99);
-    printf("| %p", ptr);
-    
-}
+// 	i = printf("%x%x%x\n", 0, 1000, 10);
+// 	printf("%d\n", i);
+// 	i = ft_printf("%x%x%x\n", 0, 1000, 10);
+// 	printf("%d\n", i);
+// }

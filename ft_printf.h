@@ -17,13 +17,15 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
+# include <limits.h>
 
 int		ft_printf(const char *f, ...);
-size_t  ft_putstr(char *str);
+int		ft_putstr(char *str);
 void	ft_putchar(char c);
-size_t 	ft_putnbr(int n);
+int 	ft_putnbr(int n);
 char	*ft_itoa(int nbr);
-size_t	ft_putnbr_uns(size_t n);
-size_t  ft_strlen(char *str);
+int		ft_putnbr_uns(unsigned int n);
+int		ft_strlen(char *str);
+int		put_hex(unsigned int n);
 
 #endif
