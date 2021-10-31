@@ -23,7 +23,6 @@ int		ft_printf(const char *f, ...);
 int		ft_putstr(char *str);
 int		ft_putchar(char c);
 int		ft_putnbr(int n);
-char	*ft_itoa(int nbr);
 int		ft_putnbr_uns(unsigned int n);
 int		ft_strlen(char *str);
 int		put_hex_up(unsigned int n);
